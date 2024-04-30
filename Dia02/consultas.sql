@@ -21,7 +21,7 @@ nombre varchar(30),
 apellido varchar(30)
 );
 
---- Litar las talas de la base de datos:
+--- Litar las tablas de la base de datos:
 \d
 
 --- Muestra el detalle de la tabla
@@ -47,7 +47,50 @@ select * from clientes order by apellido asc;
 -- BORRAR ALGÚN REGISTRO DE LA TABLA
 DELETE FROM clientes WHERE nombre = 'Israel'; -- ahí borro solo a israel
 
--- ELIMINAR la tabla completa
+-- ELIMINAR datos de la tabla
 DELETE FROM clientes;
 
+-- ELIMINAR la tabla completa
+DROP table nombre_tabla;
+
 --INVESTIGAR PRIMARY KEY / FOREIGN KEY
+Clave Primaria (Primary Key):
+--Es un atributo (o conjunto de atributos) que identifica de manera única cada fila en una tabla.
+--No puede contener valores duplicados ni nulos.
+--Se define utilizando la restricción PRIMARY KEY al crear o alterar una tabla.
+
+CREATE TABLE Ejemplo (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50)
+);
+
+
+Clave Externa (Foreign Key):
+--Es un atributo (o conjunto de atributos) en una tabla que hace referencia a la clave primaria de otra tabla.
+--Se utiliza para establecer relaciones entre tablas y mantener la integridad referencial.
+--Se define utilizando la restricción FOREIGN KEY al crear o alterar una tabla.
+
+CREATE TABLE Pedidos (
+    id SERIAL PRIMARY KEY,
+    cliente_id INT,
+    fecha DATE,
+    total NUMERIC(10, 2),
+    FOREIGN KEY (cliente_id) REFERENCES Clientes(id)
+);
+
+
+
+-- FUNCIONES DE AGREGADO
+SELECT SUM(columna) FROM tabla;
+
+SELECT AVG(columna) FROM tabla;
+
+SELECT MAX(columna) FROM tabla;
+
+SELECT MIN(columna) FROM tabla;
+
+SELECT COUNT(*) FROM tabla;
+
+--- El IN busca solo lo que encuentra
+--filtra o comprueba si un valor existe en una lista determinada
+SELECT * FROM productos WHERE id_producto IN (20,1,55,3);
