@@ -21,7 +21,7 @@ nombre varchar(30),
 apellido varchar(30)
 );
 
---- Litar las tablas de la base de datos:
+--- Listar las tablas de la base de datos:
 \d
 
 --- Muestra el detalle de la tabla
@@ -53,9 +53,12 @@ DELETE FROM clientes;
 -- ELIMINAR la tabla completa
 DROP table nombre_tabla;
 
+-- ELIMINAR la base de datos
+DROP DATABASE nombre_database;
+
 --INVESTIGAR PRIMARY KEY / FOREIGN KEY
 Clave Primaria (Primary Key):
---Es un atributo (o conjunto de atributos) que identifica de manera única cada fila en una tabla.
+--Es un atributo (o conjunto de atributos) que identifica de manera ÚNICA cada fila en una tabla.
 --No puede contener valores duplicados ni nulos.
 --Se define utilizando la restricción PRIMARY KEY al crear o alterar una tabla.
 
@@ -94,3 +97,6 @@ SELECT COUNT(*) FROM tabla;
 --- El IN busca solo lo que encuentra
 --filtra o comprueba si un valor existe en una lista determinada
 SELECT * FROM productos WHERE id_producto IN (20,1,55,3);
+
+---- MODIFICAR UNA TABLA
+ALTER TABLE nombre_tabla ADD PRIMARY KEY (rut);
