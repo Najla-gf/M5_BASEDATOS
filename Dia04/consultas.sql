@@ -47,7 +47,7 @@ select * from clientes order by apellido asc;
 -- BORRAR ALGÚN REGISTRO DE LA TABLA
 DELETE FROM clientes WHERE nombre = 'Israel'; -- ahí borro solo a israel
 
--- ELIMINAR datos de la tabla
+-- ELIMINAR datos de la tabla (BORRA TODOS LOS REGISTROS)
 DELETE FROM clientes;
 
 -- ELIMINAR la tabla completa
