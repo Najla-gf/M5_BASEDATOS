@@ -100,3 +100,17 @@ SELECT * FROM productos WHERE id_producto IN (20,1,55,3);
 
 ---- MODIFICAR UNA TABLA
 ALTER TABLE nombre_tabla ADD PRIMARY KEY (rut);
+
+
+******************************************************
+--CREACION DE USUARIO
+CREATE USER NAJLA WITH PASSWORD 'Admin1234';
+---crear base de datos para el usuario
+CREATE DATABASE NAJLA WITH OWNER NAJLA;
+--ASIGNAR PERMISOS
+ALTER USER najla WITH SUPERUSER CREATEDB CREATEROLE;
+
+--entrar a la base de datos: 
+psql -U najla
+
+SELECT usename FROM pg_user;
